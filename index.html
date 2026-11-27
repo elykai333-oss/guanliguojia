@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>国家游戏</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 顶部资源栏 -->
+  <header class="topbar">
+    <div>👥 人口：<span id="population">6000</span></div>
+    <div>🌾 粮食：<span id="food">50</span> kg</div>
+    <div>🪙 银：<span id="silver">10</span> kg</div>
+    <div>🥇 金：<span id="gold">0</span> kg</div>
+  </header>
+
+  <!-- 地图 -->
+  <main>
+    <section class="map-panel">
+      <div class="map-title">🌍 国家地图</div>
+
+      <canvas id="gameMap"></canvas>
+
+      <div class="map-info">
+        每个格子 = 1 km²
+      </div>
+    </section>
+
+    <!-- 国家资料 -->
+    <section class="country-panel">
+      <h2>🏰 国家资料</h2>
+
+      <div>领土：<span id="territory">10</span> km²</div>
+      <div>国家 HP：<span id="countryHp">10000</span></div>
+
+      <hr>
+
+      <div>🌾 农民：<span id="farmers">2000</span></div>
+      <div>🪖 士兵：<span id="soldiers">2000</span></div>
+      <div>⛏️ 矿工：<span id="miners">2000</span></div>
+
+      <button id="adjustBtn">人口调整</button>
+      <button id="largeAdjustBtn">大幅调整</button>
+    </section>
+  </main>
+
+  <!-- …菜单 -->
+  <button id="menuButton" class="menu-button">…</button>
+
+  <div id="menu" class="menu hidden">
+    <button id="miniGameButton">🎮 小游戏</button>
+    <button id="countryInfoButton">🏰 国家资料</button>
+    <button id="shopButton">🛒 商店</button>
+    <button id="closeMenu">关闭</button>
+  </div>
+
+  <!-- 小游戏菜单 -->
+  <div id="miniGameMenu" class="popup hidden">
+    <h2>🎮 小游戏</h2>
+
+    <button id="farmGameButton">
+      🌱 农田
+      <span>完成1棵 → +500 g 银</span>
+    </button>
+
+    <button id="alchemyGameButton">
+      ⛏️ 石头炼金
+      <span>完成1颗 → +1 kg 银</span>
+    </button>
+
+    <button id="pushGameButton">
+      ⚔️ 兵种对推
+      <span>赢1局 → +2 kg 银</span>
+    </button>
+
+    <button id="closeMiniGames">返回</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
