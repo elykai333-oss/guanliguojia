@@ -285,6 +285,53 @@ button:active {
 .hidden {
   display: none !important;
 }
+/* =========================
+   游戏规则
+========================= */
+
+#rulesMenu {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90vw, 500px);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f8f6e9;
+    border: 3px solid #68765d;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+    z-index: 600;
+}
+
+#rulesMenu h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.rules-content {
+    line-height: 1.7;
+}
+
+.rules-content h3 {
+    margin-bottom: 5px;
+    margin-top: 18px;
+}
+
+.rules-content p {
+    margin: 4px 0;
+}
+
+#closeRules {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
 /* =========================
    手机
