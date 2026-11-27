@@ -1098,6 +1098,18 @@ document.getElementById(
       "hidden"
     );
 
+        const foodProduction =
+      GAME.farmers * 0.2;
+
+    const foodConsumption =
+      GAME.population * 0.1;
+
+    const foodNet =
+      foodProduction - foodConsumption;
+
+    const silverProduction =
+      GAME.miners * 0.01;
+
     alert(
       "🏰 国家资料\n\n" +
       "人口：" +
@@ -1107,7 +1119,32 @@ document.getElementById(
       GAME.territory +
       " km²\n" +
       "国家 HP：" +
-      GAME.countryHp
+      GAME.countryHp +
+      "\n\n" +
+
+      "🌾 农民：" +
+      GAME.farmers +
+      "\n" +
+      "🪖 士兵：" +
+      GAME.soldiers +
+      "\n" +
+      "⛏️ 矿工：" +
+      GAME.miners +
+      "\n\n" +
+
+      "📊 每日计算\n" +
+      "粮食生产：" +
+      formatNumber(foodProduction) +
+      " kg\n" +
+      "粮食消耗：" +
+      formatNumber(foodConsumption) +
+      " kg\n" +
+      "粮食净变化：" +
+      formatNumber(foodNet) +
+      " kg\n" +
+      "白银生产：" +
+      formatNumber(silverProduction) +
+      " kg"
     );
   }
 );
