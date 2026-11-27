@@ -1,0 +1,363 @@
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+  background: #dfe8d5;
+  color: #243020;
+}
+
+body {
+  padding-bottom: 90px;
+}
+
+/* =========================
+   顶部资源栏
+========================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding: 10px;
+  background: #283b25;
+  color: white;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.topbar div {
+  flex: 1 1 calc(50% - 8px);
+  min-width: 145px;
+
+  padding: 9px 10px;
+  border-radius: 10px;
+
+  background: #385233;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* =========================
+   主区域
+========================= */
+
+main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.map-panel,
+.country-panel {
+  background: #f8f6e9;
+  border: 2px solid #aeb99d;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.map-panel {
+  padding: 10px;
+}
+
+.map-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   2D地图
+========================= */
+
+#gameMap {
+  display: block;
+
+  width: 100%;
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  background: #c9c9c9;
+  border: 3px solid #5c674f;
+  border-radius: 10px;
+
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+.map-info {
+  text-align: center;
+  margin-top: 8px;
+  color: #5c674f;
+  font-size: 13px;
+}
+
+/* =========================
+   国家资料
+========================= */
+
+.country-panel {
+  margin-top: 12px;
+  padding: 15px;
+}
+
+.country-panel h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.country-panel > div {
+  margin: 8px 0;
+  padding: 8px 10px;
+
+  background: #edf1df;
+  border-radius: 8px;
+}
+
+.country-panel hr {
+  border: 0;
+  border-top: 2px solid #cbd3bd;
+  margin: 14px 0;
+}
+
+/* =========================
+   按钮
+========================= */
+
+button {
+  border: 0;
+  border-radius: 10px;
+
+  padding: 11px 15px;
+  margin: 5px;
+
+  background: #46683d;
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.1s,
+    background 0.15s;
+}
+
+button:hover {
+  background: #35542e;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   右下角 … 菜单按钮
+========================= */
+
+.menu-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+
+  z-index: 100;
+
+  width: 58px;
+  height: 58px;
+
+  margin: 0;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  background: #293d27;
+
+  font-size: 28px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.menu-button:hover {
+  background: #1f301d;
+}
+
+/* =========================
+   主菜单
+========================= */
+
+.menu {
+  position: fixed;
+
+  right: 18px;
+  bottom: 86px;
+
+  z-index: 99;
+
+  width: 220px;
+
+  padding: 12px;
+
+  background: #f8f6e9;
+
+  border: 2px solid #8c997e;
+  border-radius: 15px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.menu button {
+  width: calc(100% - 10px);
+}
+
+/* =========================
+   小游戏窗口
+========================= */
+
+.popup {
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 200;
+
+  width: min(92vw, 500px);
+  max-height: 88vh;
+
+  overflow-y: auto;
+
+  padding: 20px;
+
+  background: #f8f6e9;
+
+  border: 3px solid #68765d;
+  border-radius: 18px;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.popup h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.popup > button {
+  display: block;
+  width: calc(100% - 10px);
+
+  text-align: left;
+
+  padding: 14px;
+}
+
+.popup > button span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 12px;
+  font-weight: normal;
+
+  opacity: 0.85;
+}
+
+/* =========================
+   隐藏
+========================= */
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   手机
+========================= */
+
+@media (max-width: 600px) {
+
+  .topbar {
+    padding: 7px;
+    gap: 5px;
+  }
+
+  .topbar div {
+    min-width: 0;
+    padding: 7px;
+
+    font-size: 12px;
+  }
+
+  main {
+    padding: 8px;
+  }
+
+  .map-panel,
+  .country-panel {
+    border-radius: 12px;
+  }
+
+  .map-title {
+    font-size: 18px;
+  }
+
+  .country-panel {
+    padding: 11px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .menu-button {
+    right: 14px;
+    bottom: 14px;
+
+    width: 54px;
+    height: 54px;
+  }
+
+  .menu {
+    right: 12px;
+    bottom: 78px;
+    width: 210px;
+  }
+}
+
+/* =========================
+   电脑
+========================= */
+
+@media (min-width: 800px) {
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    gap: 15px;
+  }
+
+  .country-panel {
+    margin-top: 0;
+    align-self: start;
+  }
+
+  .topbar div {
+    flex: 0 0 auto;
+  }
+}
