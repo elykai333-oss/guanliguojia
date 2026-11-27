@@ -837,7 +837,8 @@ function openAdjustmentWindow(
     "确定";
 
   confirm.onclick =
-    function () {
+  function () {
+  };
 
       const farmers =
         Number(fields[0].value);
@@ -1084,55 +1085,7 @@ document.getElementById(
   }
 );
 
-/* =========================================================
-   国家资料按钮
-========================================================= */
 
-document.getElementById(
-  "countryInfoButton"
-).addEventListener(
-  "click",
-  function () {
-
-    menu.classList.add(
-      "hidden"
-    );
-     /* =========================================================
-   游戏规则
-========================================================= */
-
-const rulesMenu =
-  document.getElementById(
-    "rulesMenu"
-  );
-
-document.getElementById(
-  "rulesButton"
-).addEventListener(
-  "click",
-  function () {
-
-    menu.classList.add(
-      "hidden"
-    );
-
-    rulesMenu.classList.remove(
-      "hidden"
-    );
-  }
-);
-
-document.getElementById(
-  "closeRules"
-).addEventListener(
-  "click",
-  function () {
-
-    rulesMenu.classList.add(
-      "hidden"
-    );
-  }
-);
 
         const foodProduction =
       GAME.farmers * 0.2;
@@ -1181,6 +1134,55 @@ document.getElementById(
       "白银生产：" +
       formatNumber(silverProduction) +
       " kg"
+    );
+  }
+);
+/* =========================================================
+   国家资料按钮
+========================================================= */
+
+document.getElementById(
+  "countryInfoButton"
+).addEventListener(
+  "click",
+  function () {
+
+    menu.classList.add(
+      "hidden"
+    );
+     /* =========================================================
+   游戏规则
+========================================================= */
+
+const rulesMenu =
+  document.getElementById(
+    "rulesMenu"
+  );
+
+document.getElementById(
+  "rulesButton"
+).addEventListener(
+  "click",
+  function () {
+
+    menu.classList.add(
+      "hidden"
+    );
+
+    rulesMenu.classList.remove(
+      "hidden"
+    );
+  }
+);
+
+document.getElementById(
+  "closeRules"
+).addEventListener(
+  "click",
+  function () {
+
+    rulesMenu.classList.add(
+      "hidden"
     );
   }
 );
