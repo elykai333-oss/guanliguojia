@@ -1097,6 +1097,42 @@ document.getElementById(
     menu.classList.add(
       "hidden"
     );
+     /* =========================================================
+   游戏规则
+========================================================= */
+
+const rulesMenu =
+  document.getElementById(
+    "rulesMenu"
+  );
+
+document.getElementById(
+  "rulesButton"
+).addEventListener(
+  "click",
+  function () {
+
+    menu.classList.add(
+      "hidden"
+    );
+
+    rulesMenu.classList.remove(
+      "hidden"
+    );
+  }
+);
+
+document.getElementById(
+  "closeRules"
+).addEventListener(
+  "click",
+  function () {
+
+    rulesMenu.classList.add(
+      "hidden"
+    );
+  }
+);
 
         const foodProduction =
       GAME.farmers * 0.2;
