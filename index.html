@@ -54,6 +54,7 @@
   <div id="menu" class="menu hidden">
     <button id="miniGameButton">🎮 小游戏</button>
     <button id="countryInfoButton">🏰 国家资料</button>
+    <button id="rulesButton">📖 游戏规则</button>
     <button id="shopButton">🛒 商店</button>
     <button id="closeMenu">关闭</button>
   </div>
@@ -78,6 +79,46 @@
     </button>
 
     <button id="closeMiniGames">返回</button>
+  </div><div id="rulesMenu" class="menu-popup hidden">
+
+  <h2>📖 游戏规则</h2>
+
+  <div class="rules-content">
+
+    <h3>🗺️ 地图</h3>
+    <p>地图为 500 × 500 格。</p>
+    <p>每个格子 = 1 km²。</p>
+
+    <h3>👥 人口</h3>
+    <p>初始人口：6000 人。</p>
+    <p>每天增加 6000 人。</p>
+    <p>人口分配必须以 100 人为单位。</p>
+
+    <h3>🌾 农民</h3>
+    <p>每名农民每天生产 0.2 kg 粮食。</p>
+    <p>200 名农民占用 1 km²。</p>
+
+    <h3>🪖 士兵</h3>
+    <p>每名士兵每天消耗 0.1 kg 粮食。</p>
+    <p>1000 名普通士兵可以占领 1 km²。</p>
+    <p>2000 名士兵的训练营占用 1 km²。</p>
+
+    <h3>⛏️ 矿工</h3>
+    <p>每名矿工每天生产 10 g 白银。</p>
+    <p>矿工不占用地图土地。</p>
+
+    <h3>💰 资源</h3>
+    <p>20 g 白银 = 1 g 黄金。</p>
+    <p>1 kg 粮食 = 250 g 白银。</p>
+    <p>100 kg 粮食 = 20 kg 白银。</p>
+
+    <h3>🏰 国家</h3>
+    <p>国家初始 HP：10000。</p>
+    <p>国家 HP 每天恢复 1000。</p>
+
+    <button id="closeRules">关闭</button>
+
+  </div>
   </div>
 
   <script src="app.js"></script>
