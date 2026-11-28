@@ -2,125 +2,411 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  >
+
   <title>国家游戏</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- 顶部资源栏 -->
+  <!-- =========================
+       顶部资源栏
+  ========================== -->
+
   <header class="topbar">
-    <div>👥 人口：<span id="population">6000</span></div>
-    <div>🌾 粮食：<span id="food">50</span> kg</div>
-    <div>🪙 银：<span id="silver">10</span> kg</div>
-    <div>🥇 金：<span id="gold">0</span> kg</div>
+
+    <div>
+      👥 人口：
+      <span id="population">6000</span>
+    </div>
+
+    <div>
+      🌾 粮食：
+      <span id="food">50</span> kg
+    </div>
+
+    <div>
+      🪙 银：
+      <span id="silver">10</span> kg
+    </div>
+
+    <div>
+      🥇 金：
+      <span id="gold">0</span> kg
+    </div>
+
   </header>
 
-  <!-- 地图 -->
+
+  <!-- =========================
+       主游戏
+  ========================== -->
+
   <main>
-    <section class="map-panel">
-      <div class="map-title">🌍 国家地图</div>
+
+    <!-- 地图 -->
+
+    <section class="panel">
+
+      <h2>🌍 国家地图</h2>
 
       <canvas id="gameMap"></canvas>
 
-      <div class="map-info">
+      <div class="map-tip">
         每个格子 = 1 km²
       </div>
+
     </section>
+
 
     <!-- 国家资料 -->
-    <section class="country-panel">
+
+    <section class="panel">
+
       <h2>🏰 国家资料</h2>
 
-      <div>领土：<span id="territory">10</span> km²</div>
-      <div>国家 HP：<span id="countryHp">10000</span></div>
+      <div class="stats-grid">
 
-      <hr>
+        <div>
+          领土
+          <strong>
+            <span id="territory">10</span> km²
+          </strong>
+        </div>
 
-      <div>🌾 农民：<span id="farmers">2000</span></div>
-      <div>🪖 士兵：<span id="soldiers">2000</span></div>
-      <div>⛏️ 矿工：<span id="miners">2000</span></div>
+        <div>
+          国家 HP
+          <strong id="countryHp">
+            10000
+          </strong>
+        </div>
 
-      <button id="adjustBtn">人口调整</button>
-      <button id="largeAdjustBtn">大幅调整</button>
+        <div>
+          🌾 农民
+          <strong id="farmers">
+            2000
+          </strong>
+        </div>
+
+        <div>
+          🪖 士兵
+          <strong id="soldiers">
+            2000
+          </strong>
+        </div>
+
+        <div>
+          ⛏️ 矿工
+          <strong id="miners">
+            2000
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="button-row">
+
+        <button id="adjustBtn">
+          👥 人口调整
+        </button>
+
+        <button id="largeAdjustBtn">
+          📊 大幅调整
+        </button>
+
+      </div>
+
     </section>
+
   </main>
 
-  <!-- …菜单 -->
-  <button id="menuButton" class="menu-button">…</button>
 
-  <div id="menu" class="menu hidden">
-    <button id="miniGameButton">🎮 小游戏</button>
-    <button id="countryInfoButton">🏰 国家资料</button>
-    <button id="rulesButton">📖 游戏规则</button>
-    <button id="shopButton">🛒 商店</button>
-    <button id="closeMenu">关闭</button>
+  <!-- =========================
+       … 菜单
+  ========================== -->
+
+  <button
+    id="menuButton"
+    class="menu-button"
+  >
+    …
+  </button>
+
+
+  <div
+    id="menu"
+    class="popup menu hidden"
+  >
+
+    <h2>菜单</h2>
+
+    <button id="miniGameButton">
+      🎮 小游戏
+    </button>
+
+    <button id="countryInfoButton">
+      🏰 国家资料
+    </button>
+
+    <button id="shopButton">
+      🛒 商店
+    </button>
+
+    <button id="closeMenu">
+      关闭
+    </button>
+
   </div>
 
-  <!-- 小游戏菜单 -->
-  <div id="miniGameMenu" class="popup hidden">
+
+  <!-- =========================
+       小游戏菜单
+  ========================== -->
+
+  <div
+    id="miniGameMenu"
+    class="popup hidden"
+  >
+
     <h2>🎮 小游戏</h2>
 
     <button id="farmGameButton">
       🌱 农田
-      <span>完成1棵 → +500 g 银</span>
+      <small>
+        10块农田
+      </small>
     </button>
 
     <button id="alchemyGameButton">
       ⛏️ 石头炼金
-      <span>完成1颗 → +1 kg 银</span>
+      <small>
+        完成一次 → +1 kg 银
+      </small>
     </button>
 
     <button id="pushGameButton">
       ⚔️ 兵种对推
-      <span>赢1局 → +2 kg 银</span>
+      <small>
+        赢一局 → +2 kg 银
+      </small>
     </button>
 
-    <button id="closeMiniGames">返回</button>
-  </div><div id="rulesMenu" class="menu-popup hidden">
-
-  <h2>📖 游戏规则</h2>
-
-  <div class="rules-content">
-
-    <h3>🗺️ 地图</h3>
-    <p>地图为 500 × 500 格。</p>
-    <p>每个格子 = 1 km²。</p>
-
-    <h3>👥 人口</h3>
-    <p>初始人口：6000 人。</p>
-    <p>每天增加 6000 人。</p>
-    <p>人口分配必须以 100 人为单位。</p>
-
-    <h3>🌾 农民</h3>
-    <p>每名农民每天生产 0.2 kg 粮食。</p>
-    <p>200 名农民占用 1 km²。</p>
-
-    <h3>🪖 士兵</h3>
-    <p>每名士兵每天消耗 0.1 kg 粮食。</p>
-    <p>1000 名普通士兵可以占领 1 km²。</p>
-    <p>2000 名士兵的训练营占用 1 km²。</p>
-
-    <h3>⛏️ 矿工</h3>
-    <p>每名矿工每天生产 10 g 白银。</p>
-    <p>矿工不占用地图土地。</p>
-
-    <h3>💰 资源</h3>
-    <p>20 g 白银 = 1 g 黄金。</p>
-    <p>1 kg 粮食 = 250 g 白银。</p>
-    <p>100 kg 粮食 = 20 kg 白银。</p>
-
-    <h3>🏰 国家</h3>
-    <p>国家初始 HP：10000。</p>
-    <p>国家 HP 每天恢复 1000。</p>
-
-    <button id="closeRules">关闭</button>
+    <button id="closeMiniGames">
+      返回
+    </button>
 
   </div>
+
+
+  <!-- =========================
+       农田小游戏
+  ========================== -->
+
+  <div
+    id="farmGame"
+    class="popup large-popup hidden"
+  >
+
+    <h2>🌱 农田</h2>
+
+    <p class="game-description">
+      每块土地种植需要 10 kg 粮食。
+      成熟后收获可以获得 500 g 银。
+    </p>
+
+    <div id="farmPlots" class="farm-grid"></div>
+
+    <button id="closeFarmGame">
+      返回
+    </button>
+
   </div>
+
+
+  <!-- =========================
+       炼金小游戏
+  ========================== -->
+
+  <div
+    id="alchemyGame"
+    class="popup hidden"
+  >
+
+    <h2>⛏️ 石头炼金</h2>
+
+    <div class="alchemy-stone">
+      🪨
+    </div>
+
+    <p id="alchemyStatus">
+      点击开始炼金
+    </p>
+
+    <div class="progress">
+      <div
+        id="alchemyProgress"
+        class="progress-bar"
+      ></div>
+    </div>
+
+    <button id="startAlchemy">
+      开始炼金
+    </button>
+
+    <button id="closeAlchemy">
+      返回
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       兵种对推
+  ========================== -->
+
+  <div
+    id="pushGame"
+    class="popup large-popup hidden"
+  >
+
+    <h2>⚔️ 兵种对推</h2>
+
+    <div class="battle-score">
+
+      <div>
+        你的兵力
+        <strong id="playerPush">
+          0
+        </strong>
+      </div>
+
+      <div>
+        对手兵力
+        <strong id="enemyPush">
+          0
+        </strong>
+      </div>
+
+    </div>
+
+    <div
+      id="battleArena"
+      class="battle-arena"
+    >
+
+      <div
+        id="playerArmy"
+        class="army player-army"
+      >
+        🪖
+      </div>
+
+      <div class="vs">
+        VS
+      </div>
+
+      <div
+        id="enemyArmy"
+        class="army enemy-army"
+      >
+        🪖
+      </div>
+
+    </div>
+
+    <p id="battleStatus">
+      点击“出兵”开始！
+    </p>
+
+    <button id="pushAttack">
+      ⚔️ 出兵
+    </button>
+
+    <button id="newBattle">
+      🔄 新战斗
+    </button>
+
+    <button id="closePushGame">
+      返回
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       商店
+  ========================== -->
+
+  <div
+    id="shop"
+    class="popup hidden"
+  >
+
+    <h2>🛒 商店</h2>
+
+    <div class="shop-item">
+
+      <strong>
+        ⚔️ 士兵效率
+      </strong>
+
+      <p>
+        商店系统准备中
+      </p>
+
+    </div>
+
+    <div class="shop-item">
+
+      <strong>
+        ⛏️ 矿工效率
+      </strong>
+
+      <p>
+        商店系统准备中
+      </p>
+
+    </div>
+
+    <button id="closeShop">
+      返回
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       国家资料弹窗
+  ========================== -->
+
+  <div
+    id="countryInfo"
+    class="popup hidden"
+  >
+
+    <h2>🏰 国家资料</h2>
+
+    <div id="countryInfoText"></div>
+
+    <button id="closeCountryInfo">
+      返回
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       JS
+  ========================== -->
 
   <script src="app.js"></script>
+
 </body>
 </html>
